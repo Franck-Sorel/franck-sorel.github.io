@@ -1,0 +1,14 @@
+title: "K3s + Keycloak OIDC Setup"
+description: "A comprehensive guide to configuring standalone K3s with Keycloak OIDC authentication over HTTPS"
+theme: minima
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+header_pages:
+  - index.md
+show_excerpts: false
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
