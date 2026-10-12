@@ -8,6 +8,7 @@ kramdown:
       line_numbers: false
 header_pages:
   - index.md
+  - local-llm-guide.md
 show_excerpts: false
 plugins:
   - jekyll-feed
