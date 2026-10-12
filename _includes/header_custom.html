@@ -1,0 +1,44 @@
+<button
+  id="theme-toggle"
+  class="btn btn-theme"
+  type="button"
+  aria-label="Toggle dark mode"
+  title="Toggle dark mode"
+>
+  <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+  <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <circle cx="12" cy="12" r="5"></circle>
+    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"></path>
+  </svg>
+</button>
+
+<script>
+  (function () {
+    function setTheme(theme) {
+      try { localStorage.setItem('theme', theme); } catch (e) {}
+      var link = document.querySelector('link[href*="just-the-docs"]');
+      if (link) {
+        link.setAttribute(
+          'href',
+          link
+            .getAttribute('href')
+            .replace(
+              /just-the-docs(-default|-dark)?\.css/,
+              theme === 'dark' ? 'just-the-docs-dark.css' : 'just-the-docs-default.css'
+            )
+        );
+      }
+      document.body.setAttribute('data-theme', theme);
+    }
+
+    var button = document.getElementById('theme-toggle');
+    if (button) {
+      button.addEventListener('click', function () {
+        var current = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+    }
+  })();
+</script>

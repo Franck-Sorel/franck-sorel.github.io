@@ -1,0 +1,14 @@
+// Variable overrides for the Just the Docs theme.
+// This file is imported after the theme defines its variables but before
+// any CSS classes are emitted, so redefining a variable here changes the
+// compiled stylesheets.
+//
+// Reading column: the theme default is 50rem (800px) — measured at
+// ~85-95 characters per line, past every readability guideline
+// (Baymard: 50-75 CPL optimal, 80 hard ceiling). 45rem at a 16px root
+// is 720px, the evidence-based sweet spot (~68ch).
+$content-width: 45rem;
+
+// Long-form technical reading: 1.65 line-height sits in the 1.5-1.7
+// consensus range and keeps return-sweeps accurate at this column width.
+$content-line-height: 1.65;

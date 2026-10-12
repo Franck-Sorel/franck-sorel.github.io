@@ -1,0 +1,31 @@
+<script>
+  // No-flash theme initialization: runs synchronously in <head> before the
+  // browser fetches the stylesheet. Respects the user's OS preference on
+  // first visit, then the persisted explicit choice from the toggle.
+  (function () {
+    try {
+      var theme = null;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme =
+          window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+      }
+      if (theme === 'dark') {
+        var link = document.querySelector('link[href*="just-the-docs"]');
+        if (link) {
+          link.setAttribute(
+            'href',
+            link.getAttribute('href').replace(/just-the-docs(-default)?\.css/, 'just-the-docs-dark.css')
+          );
+        }
+      }
+      // Set on <body> once it exists so the toggle shows the right icon.
+      document.addEventListener('DOMContentLoaded', function () {
+        document.body.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+      });
+    } catch (e) {}
+  })();
+</script>

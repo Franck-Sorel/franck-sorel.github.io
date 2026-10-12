@@ -1,15 +1,65 @@
 title: "Franck Sorel — Tech Guides"
-description: "Practical guides: local LLMs with Ollama, K3s + Keycloak OIDC, and more"
-theme: minima
+description: "Practical engineering guides: running LLMs locally with Ollama, K3s + Keycloak OIDC, and more."
+url: "https://franck-sorel.github.io"
+
+# Theme: Just the Docs via GitHub Pages native remote_theme support
+remote_theme: just-the-docs/just-the-docs
+
 markdown: kramdown
 kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: false
-header_pages:
-  - index.md
-  - local-llm-guide.md
-show_excerpts: false
+
+# Reading column: default theme value is 50rem (800px), too wide for
+# comfortable reading (evidence-based sweet spot: ~68ch / 720px).
+# Overridden in _sass/custom/ — see _sass/custom/custom.scss.
+
+# Search (Lunr, built into the theme)
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 3
+  preview_words_before: 5
+  preview_words_after: 10
+  rel_url: true
+  button: false
+
+# Heading anchor links (deep-linking to sections)
+heading_anchors: true
+
+# Mermaid diagrams (rendered client-side by the theme)
+mermaid:
+  version: "12.1.0"
+
+# Callouts: one accent family for semantic messages only
+callouts:
+  note:
+    title: Note
+    color: blue
+  tip:
+    title: Tip
+    color: green
+  warning:
+    title: Warning
+    color: yellow
+  danger:
+    title: Danger
+    color: red
+
+# Upper-right header links
+aux_links:
+  "GitHub":
+    - "https://github.com/Franck-Sorel"
+aux_links_new_tab: true
+
+# "Edit this page on GitHub" footer link
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub."
+gh_edit_repository: "https://github.com/Franck-Sorel/franck-sorel.github.io"
+gh_edit_branch: "main"
+gh_edit_view_mode: "tree"
+
 plugins:
-  - jekyll-feed
+  - jekyll-remote-theme
   - jekyll-seo-tag

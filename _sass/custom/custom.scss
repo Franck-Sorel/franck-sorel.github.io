@@ -1,0 +1,103 @@
+// Custom styles for this site.
+// Loaded by the theme after all other styles — pure CSS overrides live here.
+
+// --- Reading geometry -------------------------------------------------------
+// Research consensus: body 17px reads better for long-form docs than 16px
+// (docs sites converge on 17-18px; never below 16px).
+.main-content {
+  font-size: 1.0625rem; // 17px
+}
+
+// --- Homepage: guide cards ---------------------------------------------------
+// Landing/hub pattern: card grid of guides, title + one-line description.
+.guides {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 50rem) {
+  .guides {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.guide-card {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  border: $border $border-color;
+  border-radius: $border-radius;
+  text-decoration: none;
+
+  &:hover {
+    border-color: $link-color;
+    text-decoration: none;
+
+    .guide-card-title {
+      color: $link-color;
+    }
+  }
+}
+
+.guide-card-title {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.guide-card-text {
+  color: $body-text-color; // falls back to theme body color
+  font-size: 0.9375rem;
+  display: block;
+}
+
+// --- Theme toggle button (in the site header) -------------------------------
+.btn-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin: 0.25rem 0;
+  border: $border $border-color;
+  border-radius: $border-radius;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $link-color;
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+  }
+}
+
+// Show the right icon per theme: sun in dark mode (to switch to light),
+// moon in light mode (to switch to dark).
+.btn-theme .icon-sun { display: none; }
+.btn-theme .icon-moon { display: block; }
+body[data-theme="dark"] .btn-theme .icon-sun { display: block; }
+body[data-theme="dark"] .btn-theme .icon-moon { display: none; }
+
+// --- Code blocks ------------------------------------------------------------
+// Horizontal scroll, never wrap — code must never reflow.
+.highlighter-rouge,
+pre.highlight {
+  overflow-x: auto;
+}
+
+// --- Small screens ----------------------------------------------------------
+// Side padding for narrow viewports: content can use the full width,
+// mobile portrait naturally lands in the 35-50 CPL readable zone.
+@media (max-width: 31.25rem) {
+  .main-content {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
