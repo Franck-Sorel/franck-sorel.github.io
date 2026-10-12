@@ -1,5 +1,5 @@
-title: "K3s + Keycloak OIDC Setup"
-description: "A comprehensive guide to configuring standalone K3s with Keycloak OIDC authentication over HTTPS"
+title: "Franck Sorel — Tech Guides"
+description: "Practical guides: local LLMs with Ollama, K3s + Keycloak OIDC, and more"
 theme: minima
 markdown: kramdown
 kramdown:
